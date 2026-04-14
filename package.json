@@ -1,0 +1,50 @@
+{
+  "name": "bistrot-order",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "node ./node_modules/next/dist/bin/next dev",
+    "build": "prisma generate && node ./node_modules/next/dist/bin/next build",
+    "start": "node ./node_modules/next/dist/bin/next start",
+    "lint": "node ./node_modules/next/dist/bin/next lint",
+    "postinstall": "prisma generate",
+    "db:generate": "prisma generate",
+    "db:push": "prisma generate && prisma db push",
+    "db:seed": "prisma generate && prisma db seed",
+    "db:studio": "prisma studio",
+    "db:transfer:export": "tsx scripts/db-transfer.ts export",
+    "db:transfer:import": "tsx scripts/db-transfer.ts import",
+    "db:transfer:copy": "tsx scripts/db-transfer.ts copy",
+    "db:menu:clone": "tsx scripts/clone-menu.ts",
+    "db:recover:neon": "tsx scripts/db-recover-neon.ts",
+    "db:backup:archive": "tsx scripts/db-backup-archive.ts",
+    "db:restore:drill": "tsx scripts/db-restore-drill.ts"
+  },
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.6.0",
+    "@prisma/client": "^7.6.0",
+    "dotenv": "^16.4.7",
+    "pg": "^8.14.1",
+    "@stripe/react-stripe-js": "^3.6.0",
+    "@stripe/stripe-js": "^5.10.0",
+    "next": "^15.2.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "stripe": "^17.7.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
+    "@tailwindcss/postcss": "^4.0.17",
+    "@types/node": "^22.13.14",
+    "@types/react": "^19.0.12",
+    "@types/react-dom": "^19.0.4",
+    "eslint": "^9.23.0",
+    "eslint-config-next": "^15.2.4",
+    "@types/pg": "^8.11.11",
+    "prisma": "^7.6.0",
+    "tailwindcss": "^4.0.17",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2"
+  }
+}

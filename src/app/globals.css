@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme {
+  --color-canvas: #faf8f7;
+  --color-canvas-elevated: #ffffff;
+  --color-bordeaux: #6e0f1f;
+  --color-bordeaux-dark: #4e0915;
+  --color-ink: #1c1c1c;
+  --color-muted: #6f6f6f;
+  --color-hairline: #e7dfdc;
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --radius-card: 0.625rem;
+  --shadow-soft: 0 1px 2px rgb(28 28 28 / 0.04);
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  @apply bg-canvas text-ink antialiased;
+  font-feature-settings: "kern" 1, "liga" 1;
+}
+
+::selection {
+  background: rgb(110 15 31 / 0.12);
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes reward-leaf-burst {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.3)
+      rotate(var(--leaf-rotate-start, 0deg));
+  }
+  18% {
+    opacity: 0.92;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(
+        calc(-50% + var(--leaf-x, 0px)),
+        calc(-50% + var(--leaf-y, 0px))
+      )
+      scale(1) rotate(var(--leaf-rotate-end, 0deg));
+  }
+}
+
+.reward-leaf {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0.85rem;
+  height: 1.6rem;
+  opacity: 0;
+  border-radius: 100% 0 100% 0;
+  background: linear-gradient(
+    180deg,
+    rgb(181 82 99 / 0.92) 0%,
+    rgb(110 15 31 / 0.96) 100%
+  );
+  box-shadow: 0 10px 22px rgb(110 15 31 / 0.16);
+  animation: reward-leaf-burst 920ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  pointer-events: none;
+}
+
+@keyframes reward-sigh {
+  0% {
+    opacity: 0;
+    transform: translateY(6px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.reward-sigh {
+  animation: reward-sigh 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
