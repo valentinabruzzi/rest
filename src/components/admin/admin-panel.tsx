@@ -568,7 +568,7 @@ export function AdminPanel() {
 
       const result = await fetchJsonWithRetry<{ restaurants?: RestaurantData[]; error?: string }>(
         "/api/admin/data",
-        undefined,
+        { cache: "no-store" },
         { attempts: 3 }
       );
       if (result.status === 401) {
